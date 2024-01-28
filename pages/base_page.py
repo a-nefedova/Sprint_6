@@ -23,6 +23,12 @@ class BasePage:
     def find_visible_element(self, locator, time=10):
         return WebDriverWait(self.driver, time).until(EC.visibility_of_element_located(locator))
 
+    def click_visible_element(self, locator, time=10):
+        self.find_visible_element(locator, time).click()
+
+    def send_keys_to_element(self, locator, text):
+        self.find_visible_element(locator).send_keys(text)
+
     def wait_url_to_be(self, url, time=10):
         WebDriverWait(self.driver, time).until(EC.url_to_be(url))
 
