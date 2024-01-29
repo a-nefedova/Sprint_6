@@ -20,7 +20,7 @@ class TestLogosLinks:
         logo = Homepage(driver)
         logo.go_to_page(URLs.base_url)
         logo.click_visible_element(logo.yandex_logo)
-        logo.driver.switch_to.window(logo.driver.window_handles[1])
+        logo.switch_to_new_window()
         logo.wait_url_contain('http')
         logo.wait_url_not_contain('passport')
 

@@ -9,9 +9,13 @@ class BasePage:
     def __init__(self, driver):
         self.driver = driver
 
-    @allure.step(f'Переходим на страницу')
+    @allure.step('Переходим на страницу')
     def go_to_page(self, url):
         self.driver.get(url)
+
+    @allure.step('Переходим на новую вкладку')
+    def switch_to_new_window(self):
+        self.driver.switch_to.window(self.driver.window_handles[1])
 
     def current_page(self):
         return self.driver.current_url
